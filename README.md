@@ -1,14 +1,18 @@
-# Zero-Shot Regression ToolKit
+# Multi-Modal Regression ToolKit
 
 ## Abstract
 
-This package is meant to prepare and deliver models to predict / forecast business KPIs without any pre-running.
-This is the zero-shot part of this toolkit, because we do only learn from similar data.
-Although, basically, one could also include recurrent, many-to-one, convolutional and other models.
+This package is meant to prepare and deliver models to predict / forecast KPIs without from multiple unstructured sources.
+This is the multi-modal part of this toolkit, because we combine for instance a pressure sensor and some camera embeddings
+and try to find their concurrent effect on the target KPI.
+
+This toolkit is meant to be a skeleton for simple on piont regrression (not actively considering the time aspect).
+Even though, basically, one could also include recurrent, many-to-one, convolutional and other models.
 Thus, the training data *can technically* be certain past data predicting the future.<br>
+
 All features for the modelling are mostly preprocessed and thus just created on demand!
 For instance which day of the week we have is either a categorical string, for 
-catboost-like models, or a dummy for each category (one-hot encoded). <br>
+catboost-like models, or a dummy for each (one-hot encoded). <br>
 (More about this in Methodology.)
 
 ## Prediction  Service
@@ -28,7 +32,7 @@ Ideally, one would then provide a prediction service, translating the model outp
 into meaningful predictions and returning such data as a response (i.e. RESTfully).
 
 The `SciKit` models could include `CatBoost`, the custom `ADBudgRegressor` or any 
-original `Scikit` model. They just need to have the `fit` and `predict` functions 
+original `SciKit` model. They just need to have the `fit` and `predict` functions 
 respectively.
 
 The `TorchLightningModel` has two implemented algorithm ready to use. One Multi-Layer 
